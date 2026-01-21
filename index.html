@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Script</title>
+    <title>JavaScript</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="header.css"/>
     <link rel="stylesheet" href="introduction.css">
+    <link rel="stylesheet" href="project.css">
 </head>
 <body>
 
@@ -29,9 +30,22 @@
 
         <header>
           <div class="LandingPage" id="LandingPageSection">
-            <div>
-              <h1 class="lpTitle">Java Script</h1>
-              <p class="lpSubTitle">This is an Introduction to Javascript, it shows what you can do with javascript</p>
+            <div class="lp-content">
+              <p class="lp-label">// Learn & Build</p>
+              <h1 class="lpTitle">Entdecke <span>JavaScript</span></h1>
+              <p class="lpSubTitle">Eine interaktive Einführung in die Programmiersprache, die das moderne Web antreibt. Lerne durch Beispiele und baue echte Projekte.</p>
+              <a href="#introduction" class="lp-cta">
+                Jetzt starten
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+            
+            <div class="scroll-indicator">
+              <span>Scroll</span>
+              <div class="mouse"></div>
             </div>
           </div>
         </header>
@@ -79,135 +93,353 @@
 
         </section>
 
-        <section id="project_section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
-          <div style="text-align: center;">
-            <h2 style="font-size: 50px; color: white;">Projekte</h2>
-            <p style="font-size: 20px; max-width: 600px;">Hier kommen deine Projekte hin.</p>
+        <!-- ============================================
+             INTERACTIVE PROJECTS SECTION
+             ============================================ -->
+        <section id="project_section">
+          
+          <div class="projects-header">
+            <h2>Projekte</h2>
+            <p class="projects-title">Interaktive <span>Beispiele</span></p>
           </div>
+
+          <div class="projects-grid">
+
+            <!-- 1. Ripple Button -->
+            <div class="project-card" data-demo="ripple">
+              <div class="card-header">
+                <div class="card-label">
+                  <div class="card-label-icon">01</div>
+                  <span class="card-label-text">Ripple Effect</span>
+                </div>
+                <button class="code-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Code
+                </button>
+              </div>
+              <div class="card-content">
+                <div class="demo-view">
+                  <button class="ripple-btn" id="rippleBtn">Klick mich!</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Magnetic Button -->
+            <div class="project-card" data-demo="magnetic">
+              <div class="card-header">
+                <div class="card-label">
+                  <div class="card-label-icon">02</div>
+                  <span class="card-label-text">Magnetic Button</span>
+                </div>
+                <button class="code-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Code
+                </button>
+              </div>
+              <div class="card-content">
+                <div class="demo-view">
+                  <div class="magnetic-container">
+                    <button class="magnetic-btn" id="magneticBtn">
+                      <span>Hover me</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Typing Animation -->
+            <div class="project-card" data-demo="typing">
+              <div class="card-header">
+                <div class="card-label">
+                  <div class="card-label-icon">03</div>
+                  <span class="card-label-text">Typewriter</span>
+                </div>
+                <button class="code-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Code
+                </button>
+              </div>
+              <div class="card-content">
+                <div class="demo-view">
+                  <div class="typing-demo">
+                    <span class="typing-text" id="typingText"></span>
+                    <button class="typing-restart" id="typingRestart">↻ Restart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Counter Animation -->
+            <div class="project-card" data-demo="counter">
+              <div class="card-header">
+                <div class="card-label">
+                  <div class="card-label-icon">04</div>
+                  <span class="card-label-text">Counter</span>
+                </div>
+                <button class="code-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Code
+                </button>
+              </div>
+              <div class="card-content">
+                <div class="demo-view">
+                  <div class="counter-demo">
+                    <span class="counter-value" id="counterValue">0</span>
+                    <div class="counter-controls">
+                      <button class="counter-btn" id="counterMinus">−</button>
+                      <button class="counter-btn" id="counterPlus">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Pulse Loader -->
+            <div class="project-card" data-demo="loader">
+              <div class="card-header">
+                <div class="card-label">
+                  <div class="card-label-icon">05</div>
+                  <span class="card-label-text">Loading Animation</span>
+                </div>
+                <button class="code-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Code
+                </button>
+              </div>
+              <div class="card-content">
+                <div class="demo-view">
+                  <div class="loader-demo">
+                    <div class="pulse-loader">
+                      <div class="pulse-dot"></div>
+                      <div class="pulse-dot"></div>
+                      <div class="pulse-dot"></div>
+                    </div>
+                    <span class="loader-label">LOADING...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Tooltip -->
+            <div class="project-card" data-demo="tooltip">
+              <div class="card-header">
+                <div class="card-label">
+                  <div class="card-label-icon">06</div>
+                  <span class="card-label-text">Tooltip</span>
+                </div>
+                <button class="code-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  Code
+                </button>
+              </div>
+              <div class="card-content">
+                <div class="demo-view">
+                  <div class="tooltip-demo">
+                    <div class="tooltip-trigger">
+                      Hover über mich
+                      <div class="tooltip-box">JavaScript ist cool! 🔥</div>
+                    </div>
+                    <span class="tooltip-hint">↑ Hover für Tooltip</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </section>
 
         <section id="more_information_section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
           <div style="text-align: center;">
-            <h2 style="font-size: 50px; color: white;">Kontakt</h2>
-            <p style="font-size: 20px; max-width: 600px;">Kontaktinformationen hier.</p>
+            <h2 style="font-size: 50px; color: white; font-family: 'Outfit', sans-serif; font-weight: 600;">Kontakt</h2>
+            <p style="font-size: 20px; max-width: 600px; font-family: 'Outfit', sans-serif; color: rgba(255,255,255,0.5);">Kontaktinformationen hier.</p>
           </div>
         </section>
 
     </div>
 
+    <!-- Code Modal -->
+    <div class="code-modal-overlay" id="codeModal">
+      <div class="code-modal">
+        <div class="code-modal-header">
+          <div class="code-modal-title">
+            <span>JS</span>
+            <h3 id="modalTitle">Code</h3>
+          </div>
+          <button class="code-modal-close" id="closeModal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="code-modal-body">
+          <pre id="modalCode"></pre>
+        </div>
+      </div>
+    </div>
+
     <script>
-        const navLinks = document.querySelectorAll('.navbar a'); /* Wählt alle Links in der Navbar aus */
-        const indicator = document.querySelector('.nav-indicator'); /* Wählt den Sliding Indicator aus */
-        const sections = document.querySelectorAll('section, .LandingPage'); /* Alle Sektionen */
+        const navLinks = document.querySelectorAll('.navbar a');
+        const indicator = document.querySelector('.nav-indicator');
+        const sections = document.querySelectorAll('section, .LandingPage');
         
-        /* Bewegt den Indicator zum angegebenen Link */
+        let isScrolling = false;
+        let scrollTimeout = null;
+        
         function moveIndicator(link) {
-            indicator.style.width = link.offsetWidth + 'px'; /* Setzt Breite auf Link-Breite */
-            indicator.style.left = link.offsetLeft + 'px'; /* Setzt Position auf Link-Position */
+            if (!link) return;
+            const width = link.offsetWidth;
+            const left = link.offsetLeft;
+            indicator.style.width = width + 'px';
+            indicator.style.left = left + 'px';
         }
 
-        /* Setzt den aktiven Link basierend auf der Sektion-ID */
-        function setActiveLink(id) {
+        function setActiveLink(id, animate = true) {
+            if (isScrolling) return;
+            
             navLinks.forEach(link => {
-                link.classList.remove('active'); /* Entfernt active von allen */
-                if (link.getAttribute('href') === '#' + id) { /* Wenn href mit ID übereinstimmt */
-                    link.classList.add('active'); /* Fügt active hinzu */
-                    moveIndicator(link); /* Bewegt Indicator */
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + id) {
+                    link.classList.add('active');
+                    moveIndicator(link);
                 }
             });
         }
         
-        /* Initiale Position beim Laden der Seite */
-        const activeLink = document.querySelector('.navbar a.active'); /* Findet den aktiven Link */
-        if (activeLink) {
-            moveIndicator(activeLink); /* Bewegt Indicator zum aktiven Link */
-        }
+        window.addEventListener('load', () => {
+            const activeLink = document.querySelector('.navbar a.active');
+            if (activeLink) {
+                requestAnimationFrame(() => {
+                    moveIndicator(activeLink);
+                });
+            }
+        });
 
-        /* Easing Funktion - extra smooth mit sanftem Start und Ende */
         function easeInOutQuart(t) {
             return t < 0.5 
                 ? 8 * t * t * t * t 
                 : 1 - Math.pow(-2 * t + 2, 4) / 2;
         }
 
-        /* Custom Smooth Scroll Funktion */
-        function smoothScroll(target, duration) {
-            const targetElement = document.querySelector(target); /* Findet Ziel-Element */
+        function smoothScroll(target, duration, callback) {
+            const targetElement = document.querySelector(target);
             if (!targetElement) return;
             
-            /* getBoundingClientRect gibt die Position relativ zum Viewport */
             const elementRect = targetElement.getBoundingClientRect();
             const absoluteElementTop = elementRect.top + window.pageYOffset;
-            const targetPosition = absoluteElementTop; /* Direkt zur Sektion */
-            const startPosition = window.pageYOffset; /* Aktuelle Position */
-            const distance = targetPosition - startPosition; /* Zu scrollende Distanz */
+            const targetPosition = absoluteElementTop;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            
+            if (Math.abs(distance) < 1) {
+                if (callback) callback();
+                return;
+            }
+            
             let startTime = null;
             
             function animation(currentTime) {
-                if (startTime === null) startTime = currentTime; /* Startzeit setzen */
-                const timeElapsed = currentTime - startTime; /* Vergangene Zeit */
-                const progress = Math.min(timeElapsed / duration, 1); /* Fortschritt 0-1 */
-                const ease = easeInOutQuart(progress); /* Easing anwenden */
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                const ease = easeInOutQuart(progress);
                 
-                window.scrollTo(0, startPosition + distance * ease); /* Zur Position scrollen */
+                window.scrollTo(0, startPosition + distance * ease);
                 
                 if (timeElapsed < duration) {
-                    requestAnimationFrame(animation); /* Nächster Frame */
+                    requestAnimationFrame(animation);
+                } else {
+                    if (callback) callback();
                 }
             }
             
-            requestAnimationFrame(animation); /* Animation starten */
+            requestAnimationFrame(animation);
         }
         
-        /* Event Listener für jeden Link */
         navLinks.forEach(link => {
-            link.addEventListener('click', function(e) { /* Bei Klick auf einen Link */
-                e.preventDefault(); /* Verhindert Standard-Scroll */
-                const target = this.getAttribute('href'); /* Holt href Attribut */
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                const clickedLink = this;
                 
-                navLinks.forEach(l => l.classList.remove('active')); /* Entfernt active von allen */
-                this.classList.add('active'); /* Fügt active hinzu */
-                moveIndicator(this); /* Bewegt Indicator */
+                navLinks.forEach(l => l.classList.remove('active'));
+                clickedLink.classList.add('active');
+                moveIndicator(clickedLink);
                 
-                smoothScroll(target, 1200); /* Scrollt smooth (1200ms = 1.2 Sekunden) */
+                isScrolling = true;
+                
+                smoothScroll(target, 1000, () => {
+                    setTimeout(() => {
+                        isScrolling = false;
+                    }, 100);
+                });
             });
         });
 
-        /* Intersection Observer - erkennt welche Sektion sichtbar ist */
+        const ctaButton = document.querySelector('.lp-cta');
+        if (ctaButton) {
+            ctaButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === target) {
+                        link.click();
+                    }
+                });
+            });
+        }
+
         const observerOptions = {
-            root: null, /* Viewport als Root */
-            rootMargin: '-50% 0px -50% 0px', /* Trigger in der Mitte */
-            threshold: 0 /* Trigger sobald sichtbar */
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) { /* Wenn Sektion sichtbar */
-                    setActiveLink(entry.target.id); /* Link aktivieren */
+                if (entry.isIntersecting && !isScrolling) {
+                    setActiveLink(entry.target.id);
                 }
             });
         }, observerOptions);
 
-        /* Beobachte alle Sektionen */
         sections.forEach(section => {
-            if (section.id) { /* Nur Sektionen mit ID */
-                observer.observe(section); /* Zum Observer hinzufügen */
+            if (section.id) {
+                observer.observe(section);
             }
         });
         
-        /* Bei Fenster-Resize neu positionieren */
         window.addEventListener('resize', () => {
-            const current = document.querySelector('.navbar a.active'); /* Aktueller aktiver Link */
+            const current = document.querySelector('.navbar a.active');
             if (current) {
-                moveIndicator(current); /* Position anpassen */
+                moveIndicator(current);
             }
         });
 
-        /* Taschenlampen-Effekt für Intro Cards - Licht geht nicht durch Wände */
+        /* Taschenlampen-Effekt für Intro Cards */
         const introCards = document.querySelectorAll('.intro-card');
         
         document.addEventListener('mousemove', (e) => {
-            /* Zuerst prüfen: Ist die Maus innerhalb einer Card? */
             let mouseInsideCard = null;
             
             introCards.forEach(card => {
@@ -222,24 +454,20 @@
             introCards.forEach(card => {
                 const rect = card.getBoundingClientRect();
                 
-                /* Mausposition relativ zur Card */
                 const mouseX = e.clientX - rect.left;
                 const mouseY = e.clientY - rect.top;
                 
-                /* Wenn Maus in einer ANDEREN Card ist, kein Licht (Wand blockiert) */
                 if (mouseInsideCard !== null && mouseInsideCard !== card) {
                     card.style.setProperty('--glow-opacity', 0);
                     return;
                 }
                 
-                /* Distanz zur nächsten Kante berechnen */
                 const distToLeft = Math.abs(mouseX);
                 const distToRight = Math.abs(mouseX - rect.width);
                 const distToTop = Math.abs(mouseY);
                 const distToBottom = Math.abs(mouseY - rect.height);
                 const minDistToEdge = Math.min(distToLeft, distToRight, distToTop, distToBottom);
                 
-                /* Prüfen ob Maus in der Nähe der Card ist */
                 const maxDistance = 150;
                 const isNearCard = mouseX > -maxDistance && mouseX < rect.width + maxDistance &&
                                    mouseY > -maxDistance && mouseY < rect.height + maxDistance;
@@ -248,15 +476,413 @@
                     card.style.setProperty('--mouse-x', mouseX + 'px');
                     card.style.setProperty('--mouse-y', mouseY + 'px');
                     
-                    /* Intensität basierend auf Distanz zur Kante - verstärkt */
                     const intensity = Math.max(0, 1 - (minDistToEdge / maxDistance));
-                    const boostedIntensity = Math.pow(intensity, 0.5) * 1.4; /* Stärkerer Glow */
+                    const boostedIntensity = Math.pow(intensity, 0.5) * 1.4;
                     card.style.setProperty('--glow-opacity', Math.min(boostedIntensity, 1));
                 } else {
                     card.style.setProperty('--glow-opacity', 0);
                 }
             });
         });
+
+        /* ============================================
+           PROJECT DEMOS - Interactive JavaScript
+           ============================================ */
+
+        // Code Snippets für Modal
+        const codeSnippets = {
+            ripple: {
+                title: 'Ripple Effect',
+                code: `<span class="comment">// Ripple Effect bei Klick erstellen</span>
+<span class="keyword">const</span> btn = document.<span class="function">querySelector</span>(<span class="string">'.ripple-btn'</span>);
+
+btn.<span class="function">addEventListener</span>(<span class="string">'click'</span>, (e) => {
+    <span class="comment">// Neues Ripple-Element erstellen</span>
+    <span class="keyword">const</span> ripple = document.<span class="function">createElement</span>(<span class="string">'span'</span>);
+    ripple.className = <span class="string">'ripple'</span>;
+    
+    <span class="comment">// Position berechnen</span>
+    <span class="keyword">const</span> rect = btn.<span class="function">getBoundingClientRect</span>();
+    <span class="keyword">const</span> size = Math.<span class="function">max</span>(rect.width, rect.height);
+    
+    <span class="comment">// Größe und Position setzen</span>
+    ripple.style.width = ripple.style.height = size + <span class="string">'px'</span>;
+    ripple.style.left = e.clientX - rect.left - size / <span class="number">2</span> + <span class="string">'px'</span>;
+    ripple.style.top = e.clientY - rect.top - size / <span class="number">2</span> + <span class="string">'px'</span>;
+    
+    <span class="comment">// Element einfügen</span>
+    btn.<span class="function">appendChild</span>(ripple);
+    
+    <span class="comment">// Nach Animation entfernen</span>
+    <span class="function">setTimeout</span>(() => ripple.<span class="function">remove</span>(), <span class="number">600</span>);
+});
+
+<span class="comment">/* CSS Animation */</span>
+.ripple {
+    <span class="keyword">position</span>: absolute;
+    <span class="keyword">border-radius</span>: <span class="number">50%</span>;
+    <span class="keyword">background</span>: <span class="function">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.4</span>);
+    <span class="keyword">transform</span>: <span class="function">scale</span>(<span class="number">0</span>);
+    <span class="keyword">animation</span>: rippleEffect <span class="number">0.6s</span> linear;
+}
+
+<span class="keyword">@keyframes</span> rippleEffect {
+    <span class="keyword">to</span> {
+        <span class="keyword">transform</span>: <span class="function">scale</span>(<span class="number">4</span>);
+        <span class="keyword">opacity</span>: <span class="number">0</span>;
+    }
+}`
+            },
+            magnetic: {
+                title: 'Magnetic Button',
+                code: `<span class="comment">// Magnetic Button - folgt der Maus</span>
+<span class="keyword">const</span> btn = document.<span class="function">querySelector</span>(<span class="string">'.magnetic-btn'</span>);
+<span class="keyword">const</span> btnText = btn.<span class="function">querySelector</span>(<span class="string">'span'</span>);
+
+btn.<span class="function">addEventListener</span>(<span class="string">'mousemove'</span>, (e) => {
+    <span class="keyword">const</span> rect = btn.<span class="function">getBoundingClientRect</span>();
+    
+    <span class="comment">// Mausposition relativ zum Button</span>
+    <span class="keyword">const</span> x = e.clientX - rect.left - rect.width / <span class="number">2</span>;
+    <span class="keyword">const</span> y = e.clientY - rect.top - rect.height / <span class="number">2</span>;
+    
+    <span class="comment">// Button bewegt sich zur Maus (gedämpft)</span>
+    btn.style.transform = 
+        <span class="string">\`translate(\${x * 0.3}px, \${y * 0.3}px)\`</span>;
+    
+    <span class="comment">// Text bewegt sich stärker (Parallax)</span>
+    btnText.style.transform = 
+        <span class="string">\`translate(\${x * 0.2}px, \${y * 0.2}px)\`</span>;
+});
+
+btn.<span class="function">addEventListener</span>(<span class="string">'mouseleave'</span>, () => {
+    <span class="comment">// Zurück zur Ausgangsposition</span>
+    btn.style.transform = <span class="string">'translate(0, 0)'</span>;
+    btnText.style.transform = <span class="string">'translate(0, 0)'</span>;
+});
+
+<span class="comment">/* CSS */</span>
+.magnetic-btn {
+    <span class="keyword">transition</span>: transform <span class="number">0.2s</span> ease-out;
+}
+
+.magnetic-btn span {
+    <span class="keyword">display</span>: block;
+    <span class="keyword">transition</span>: transform <span class="number">0.2s</span> ease-out;
+}`
+            },
+            typing: {
+                title: 'Typewriter Effect',
+                code: `<span class="comment">// Typewriter Animation</span>
+<span class="keyword">const</span> element = document.<span class="function">querySelector</span>(<span class="string">'.typing-text'</span>);
+<span class="keyword">const</span> text = <span class="string">'Hello World!'</span>;
+<span class="keyword">let</span> charIndex = <span class="number">0</span>;
+<span class="keyword">let</span> typingTimeout;
+
+<span class="keyword">function</span> <span class="function">typeWriter</span>() {
+    <span class="keyword">if</span> (charIndex < text.length) {
+        <span class="comment">// Nächsten Buchstaben hinzufügen</span>
+        element.textContent += text.<span class="function">charAt</span>(charIndex);
+        charIndex++;
+        
+        <span class="comment">// Nächsten Buchstaben nach Delay</span>
+        typingTimeout = <span class="function">setTimeout</span>(typeWriter, <span class="number">100</span>);
+    }
+}
+
+<span class="comment">// Animation starten</span>
+<span class="function">typeWriter</span>();
+
+<span class="comment">// Restart-Funktion</span>
+restartBtn.<span class="function">addEventListener</span>(<span class="string">'click'</span>, () => {
+    <span class="function">clearTimeout</span>(typingTimeout);
+    element.textContent = <span class="string">''</span>;
+    charIndex = <span class="number">0</span>;
+    <span class="function">typeWriter</span>();
+});
+
+<span class="comment">/* CSS Cursor-Blinken */</span>
+.typing-text::after {
+    <span class="keyword">content</span>: <span class="string">'|'</span>;
+    <span class="keyword">animation</span>: blink <span class="number">0.8s</span> infinite;
+}
+
+<span class="keyword">@keyframes</span> blink {
+    <span class="number">0%</span>, <span class="number">50%</span> { <span class="keyword">opacity</span>: <span class="number">1</span>; }
+    <span class="number">51%</span>, <span class="number">100%</span> { <span class="keyword">opacity</span>: <span class="number">0</span>; }
+}`
+            },
+            counter: {
+                title: 'Animated Counter',
+                code: `<span class="comment">// Animierter Counter mit Bump-Effekt</span>
+<span class="keyword">const</span> display = document.<span class="function">querySelector</span>(<span class="string">'.counter-value'</span>);
+<span class="keyword">const</span> plusBtn = document.<span class="function">querySelector</span>(<span class="string">'#counterPlus'</span>);
+<span class="keyword">const</span> minusBtn = document.<span class="function">querySelector</span>(<span class="string">'#counterMinus'</span>);
+
+<span class="keyword">let</span> count = <span class="number">0</span>;
+
+<span class="keyword">function</span> <span class="function">updateCounter</span>() {
+    <span class="comment">// Wert aktualisieren</span>
+    display.textContent = count;
+    
+    <span class="comment">// Bump-Animation hinzufügen</span>
+    display.classList.<span class="function">add</span>(<span class="string">'bump'</span>);
+    
+    <span class="comment">// Animation nach kurzer Zeit entfernen</span>
+    <span class="function">setTimeout</span>(() => {
+        display.classList.<span class="function">remove</span>(<span class="string">'bump'</span>);
+    }, <span class="number">150</span>);
+}
+
+plusBtn.<span class="function">addEventListener</span>(<span class="string">'click'</span>, () => {
+    count++;
+    <span class="function">updateCounter</span>();
+});
+
+minusBtn.<span class="function">addEventListener</span>(<span class="string">'click'</span>, () => {
+    count--;
+    <span class="function">updateCounter</span>();
+});
+
+<span class="comment">/* CSS Bump Animation */</span>
+.counter-value {
+    <span class="keyword">transition</span>: transform <span class="number">0.15s</span> ease;
+}
+
+.counter-value.bump {
+    <span class="keyword">transform</span>: <span class="function">scale</span>(<span class="number">1.1</span>);
+}`
+            },
+            loader: {
+                title: 'Pulse Loading Animation',
+                code: `<span class="comment">/* Pure CSS Loading Animation */</span>
+
+<span class="comment">/* HTML Struktur */</span>
+&lt;div class="pulse-loader"&gt;
+    &lt;div class="pulse-dot"&gt;&lt;/div&gt;
+    &lt;div class="pulse-dot"&gt;&lt;/div&gt;
+    &lt;div class="pulse-dot"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+<span class="comment">/* CSS Styles */</span>
+.pulse-loader {
+    <span class="keyword">display</span>: flex;
+    <span class="keyword">gap</span>: <span class="number">8px</span>;
+}
+
+.pulse-dot {
+    <span class="keyword">width</span>: <span class="number">14px</span>;
+    <span class="keyword">height</span>: <span class="number">14px</span>;
+    <span class="keyword">border-radius</span>: <span class="number">50%</span>;
+    <span class="keyword">background</span>: <span class="string">#ff6b35</span>;
+    <span class="keyword">animation</span>: pulse <span class="number">1.4s</span> ease-in-out infinite;
+}
+
+<span class="comment">/* Verzögerung für Welleneffekt */</span>
+.pulse-dot:nth-child(<span class="number">2</span>) { 
+    <span class="keyword">animation-delay</span>: <span class="number">0.2s</span>; 
+}
+
+.pulse-dot:nth-child(<span class="number">3</span>) { 
+    <span class="keyword">animation-delay</span>: <span class="number">0.4s</span>; 
+}
+
+<span class="keyword">@keyframes</span> pulse {
+    <span class="number">0%</span>, <span class="number">80%</span>, <span class="number">100%</span> {
+        <span class="keyword">transform</span>: <span class="function">scale</span>(<span class="number">0.6</span>);
+        <span class="keyword">opacity</span>: <span class="number">0.4</span>;
+    }
+    <span class="number">40%</span> {
+        <span class="keyword">transform</span>: <span class="function">scale</span>(<span class="number">1</span>);
+        <span class="keyword">opacity</span>: <span class="number">1</span>;
+    }
+}`
+            },
+            tooltip: {
+                title: 'CSS Tooltip',
+                code: `<span class="comment">/* Pure CSS Tooltip mit Animation */</span>
+
+<span class="comment">/* HTML Struktur */</span>
+&lt;div class="tooltip-trigger"&gt;
+    Hover über mich
+    &lt;div class="tooltip-box"&gt;Tooltip Text&lt;/div&gt;
+&lt;/div&gt;
+
+<span class="comment">/* CSS Styles */</span>
+.tooltip-trigger {
+    <span class="keyword">position</span>: relative;
+    <span class="keyword">cursor</span>: pointer;
+}
+
+.tooltip-box {
+    <span class="keyword">position</span>: absolute;
+    <span class="keyword">bottom</span>: <span class="function">calc</span>(<span class="number">100%</span> + <span class="number">12px</span>);
+    <span class="keyword">left</span>: <span class="number">50%</span>;
+    <span class="keyword">transform</span>: <span class="function">translateX</span>(<span class="number">-50%</span>) <span class="function">translateY</span>(<span class="number">10px</span>);
+    
+    <span class="keyword">padding</span>: <span class="number">10px</span> <span class="number">16px</span>;
+    <span class="keyword">background</span>: <span class="string">#ff6b35</span>;
+    <span class="keyword">border-radius</span>: <span class="number">8px</span>;
+    <span class="keyword">white-space</span>: nowrap;
+    
+    <span class="comment">/* Versteckt by default */</span>
+    <span class="keyword">opacity</span>: <span class="number">0</span>;
+    <span class="keyword">visibility</span>: hidden;
+    
+    <span class="comment">/* Smooth Animation */</span>
+    <span class="keyword">transition</span>: all <span class="number">0.3s</span> 
+        <span class="function">cubic-bezier</span>(<span class="number">0.175</span>, <span class="number">0.885</span>, <span class="number">0.32</span>, <span class="number">1.275</span>);
+}
+
+<span class="comment">/* Pfeil unter dem Tooltip */</span>
+.tooltip-box::after {
+    <span class="keyword">content</span>: <span class="string">''</span>;
+    <span class="keyword">position</span>: absolute;
+    <span class="keyword">top</span>: <span class="number">100%</span>;
+    <span class="keyword">left</span>: <span class="number">50%</span>;
+    <span class="keyword">transform</span>: <span class="function">translateX</span>(<span class="number">-50%</span>);
+    <span class="keyword">border</span>: <span class="number">6px</span> solid transparent;
+    <span class="keyword">border-top-color</span>: <span class="string">#ff6b35</span>;
+}
+
+<span class="comment">/* Bei Hover sichtbar machen */</span>
+.tooltip-trigger:hover .tooltip-box {
+    <span class="keyword">opacity</span>: <span class="number">1</span>;
+    <span class="keyword">visibility</span>: visible;
+    <span class="keyword">transform</span>: <span class="function">translateX</span>(<span class="number">-50%</span>) <span class="function">translateY</span>(<span class="number">0</span>);
+}`
+            }
+        };
+
+        // Modal Elemente
+        const codeModal = document.getElementById('codeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCode = document.getElementById('modalCode');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        // Code Buttons öffnen Modal
+        document.querySelectorAll('.code-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.project-card');
+                const demoType = card.dataset.demo;
+                const snippet = codeSnippets[demoType];
+                
+                if (snippet) {
+                    modalTitle.textContent = snippet.title;
+                    modalCode.innerHTML = snippet.code;
+                    codeModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Modal schließen
+        function closeModal() {
+            codeModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        codeModal.addEventListener('click', (e) => {
+            if (e.target === codeModal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && codeModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // 1. Ripple Effect
+        const rippleBtn = document.getElementById('rippleBtn');
+        if (rippleBtn) {
+            rippleBtn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = e.clientX - rect.left - size / 2 + 'px';
+                ripple.style.top = e.clientY - rect.top - size / 2 + 'px';
+                
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        }
+
+        // 2. Magnetic Button
+        const magneticBtn = document.getElementById('magneticBtn');
+        if (magneticBtn) {
+            const btnText = magneticBtn.querySelector('span');
+            
+            magneticBtn.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                btnText.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+            
+            magneticBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translate(0, 0)';
+                btnText.style.transform = 'translate(0, 0)';
+            });
+        }
+
+        // 3. Typing Animation
+        const typingText = document.getElementById('typingText');
+        const typingRestart = document.getElementById('typingRestart');
+        const textToType = 'Hello World!';
+        let charIndex = 0;
+        let typingTimeout;
+
+        function typeWriter() {
+            if (charIndex < textToType.length) {
+                typingText.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                typingTimeout = setTimeout(typeWriter, 100);
+            }
+        }
+
+        if (typingText) {
+            typeWriter();
+            
+            typingRestart.addEventListener('click', () => {
+                clearTimeout(typingTimeout);
+                typingText.textContent = '';
+                charIndex = 0;
+                typeWriter();
+            });
+        }
+
+        // 4. Counter Animation
+        const counterValue = document.getElementById('counterValue');
+        const counterPlus = document.getElementById('counterPlus');
+        const counterMinus = document.getElementById('counterMinus');
+        let count = 0;
+
+        function updateCounter() {
+            counterValue.textContent = count;
+            counterValue.classList.add('bump');
+            setTimeout(() => counterValue.classList.remove('bump'), 150);
+        }
+
+        if (counterPlus && counterMinus) {
+            counterPlus.addEventListener('click', () => {
+                count++;
+                updateCounter();
+            });
+            
+            counterMinus.addEventListener('click', () => {
+                count--;
+                updateCounter();
+            });
+        }
     </script>
 </body>
 </html>

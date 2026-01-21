@@ -1,83 +1,338 @@
+/* ============================================
+   NAVBAR & LANDING PAGE
+   Orange Monochrome Theme - Matching Introduction
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap');
+
 /* Navbar Container */
 .navbar {
-    position: fixed;          /* Fixiert die Navbar, scrollt nicht mit */
-    top: 2rem;                /* Abstand vom oberen Rand */
-    left: 50%;                /* Startet bei 50% von links */
-    transform: translateX(-50%); /* Verschiebt zurück = zentriert */
-    z-index: 100;             /* Liegt über allen anderen Elementen */
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
 }
 
-/* Nav Links Container */
+/* Nav Links Container - GRÖSSER */
 .navbar ul {
-    display: flex;            /* Ordnet Links nebeneinander an */
-    align-items: center;      /* Zentriert Links vertikal */
-    gap: 0.5rem;              /* Abstand zwischen Links */
-    padding: 0.4rem;          /* Innenabstand */
-    margin: 0;                /* Entfernt Standard-Margin */
-    list-style: none;         /* Entfernt Aufzählungspunkte */
-    background: rgba(255, 255, 255, 0.04);  /* Transparenter Hintergrund */
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Dezente Border */
-    border-radius: 50px;      /* Runde Ecken (Pill-Shape) */
-    backdrop-filter: blur(12px); /* Glas-Unschärfe-Effekt */
-    position: relative;       /* Für absolute Positionierung des Indicators */
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem;
+    margin: 0;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 60px;
+    backdrop-filter: blur(16px);
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Sliding Indicator */
+/* Sliding Indicator - Orange Akzent */
 .nav-indicator {
-    position: absolute;       /* Positioniert relativ zum ul */
-    height: calc(100% - 0.8rem); /* Höhe minus Padding */
-    top: 0.4rem;              /* Abstand von oben */
-    background: rgba(255, 255, 255, 0.1); /* Heller als Container */
-    border-radius: 50px;      /* Runde Ecken */
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Extra smooth Animation */
-    pointer-events: none;     /* Klicks gehen hindurch */
+    position: absolute;
+    height: calc(100% - 1rem);
+    top: 0.5rem;
+    background: rgba(255, 107, 53, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 50px;
+    /* Separate transitions für width und left - smoother */
+    transition: left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    pointer-events: none;
+    will-change: left, width; /* GPU Beschleunigung */
 }
 
-/* Nav Links */
+/* Nav Links - GRÖSSER mit Outfit Font */
 .navbar a {
-    display: block;           /* Block-Element */
-    color: rgba(255, 255, 255, 0.6); /* Halbtransparentes Weiß */
-    text-decoration: none;    /* Keine Unterstreichung */
-    font-size: 0.82rem;       /* Schriftgröße */
-    font-weight: 400;         /* Normale Schriftstärke */
-    letter-spacing: 0.04em;   /* Buchstabenabstand */
-    padding: 0.65rem 1.3rem;  /* Innenabstand */
-    border-radius: 50px;      /* Runde Ecken */
-    transition: color 0.4s ease; /* Sanfte Farbänderung */
-    position: relative;       /* Für z-index */
-    z-index: 1;               /* Liegt über dem Indicator */
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    padding: 0.85rem 1.6rem;
+    border-radius: 50px;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+    position: relative;
+    z-index: 1;
 }
 
 /* Nav Link Hover */
 .navbar a:hover {
-    color: white;             /* Text wird weiß */
+    color: #ff6b35;
 }
 
 /* Nav Link Active */
 .navbar a.active {
-    color: white;             /* Text wird weiß */
+    color: #ff6b35;
+    text-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
 }
 
 /* Header */
 header {
-    margin-top: 100px;        /* Abstand damit Content nicht unter Navbar liegt */
+    margin-top: 100px;
 }
+
+/* ============================================
+   LANDING PAGE - Matching Introduction Style
+   ============================================ */
 
 .LandingPage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 750px; 
-  text-align: center;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    min-height: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    width: 100%;
 }
 
-.lpTitle{
-  color: white;
-  font-size: 75px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+/* Floating Code Symbols - wie in Introduction */
+.LandingPage::before {
+    content: 'const';
+    position: absolute;
+    top: 20%;
+    left: 12%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 50px;
+    color: rgba(255, 107, 53, 0.05);
+    pointer-events: none;
+    animation: floatCode 7s ease-in-out infinite;
 }
 
-.lpSubTitle{
-  font-size: 25px;
-  font-family: 'Outfit', sans-serif;
+.LandingPage::after {
+    content: '( )';
+    position: absolute;
+    bottom: 25%;
+    right: 12%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 55px;
+    color: rgba(255, 107, 53, 0.04);
+    pointer-events: none;
+    animation: floatCode 9s ease-in-out infinite reverse;
+}
+
+@keyframes floatCode {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(3deg); }
+}
+
+/* Landing Page Content Container */
+.lp-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 0 40px;
+}
+
+/* Kleiner Label über dem Titel */
+.lp-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff6b35;
+    margin: 0 0 24px 0;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.2s forwards;
+}
+
+/* Haupttitel */
+.lpTitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(50px, 8vw, 90px);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+    line-height: 1.1;
+    opacity: 0;
+    animation: fadeInUp 0.7s ease 0.35s forwards;
+}
+
+/* JavaScript Highlight im Titel */
+.lpTitle span {
+    color: #ff6b35;
+    position: relative;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lpTitle span:hover {
+    transform: scale(1.05) rotate(-2deg);
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.5),
+                 0 0 60px rgba(255, 107, 53, 0.3);
+    cursor: default;
+}
+
+/* Untertitel */
+.lpSubTitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin: 0 0 48px 0;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeInUp 0.7s ease 0.5s forwards;
+}
+
+/* CTA Button */
+.lp-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8f65 100%);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 0.7s ease 0.65s forwards;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+}
+
+.lp-cta:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 40px rgba(255, 107, 53, 0.5);
+}
+
+.lp-cta svg {
+    transition: transform 0.3s ease;
+}
+
+.lp-cta:hover svg {
+    transform: translateX(4px);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeInUp 0.7s ease 0.9s forwards;
+}
+
+.scroll-indicator span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.scroll-indicator .mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-indicator .mouse::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: #ff6b35;
+    border-radius: 2px;
+    animation: scrollPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 1; top: 8px; }
+    50% { opacity: 0.3; top: 18px; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar ul {
+        gap: 0.3rem;
+        padding: 0.4rem;
+    }
+    
+    .navbar a {
+        font-size: 0.85rem;
+        padding: 0.7rem 1.2rem;
+    }
+    
+    .LandingPage {
+        min-height: 100vh;
+        height: auto;
+        padding: 120px 0 80px;
+    }
+    
+    .lp-content {
+        padding: 0 24px;
+    }
+    
+    .lpTitle {
+        font-size: 48px;
+    }
+    
+    .lpSubTitle {
+        font-size: 18px;
+    }
+    
+    .LandingPage::before,
+    .LandingPage::after {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar a {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.9rem;
+    }
+    
+    .lpTitle {
+        font-size: 38px;
+    }
+    
+    .lp-label {
+        font-size: 11px;
+    }
+    
+    .lp-cta {
+        padding: 14px 28px;
+        font-size: 14px;
+    }
 }

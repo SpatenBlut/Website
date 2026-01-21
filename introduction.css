@@ -1,0 +1,268 @@
+/* ============================================
+   INTRODUCTION SECTION - JavaScript Website
+   Orange Monochrome Theme with Proximity Glow
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
+
+/* Section Container */
+#introduction {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px; /* Für 3D Effekte */
+}
+
+/* Subtle floating code symbols - Jetzt animiert */
+#introduction::before {
+    content: '{ }';
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 60px;
+    color: rgba(255, 107, 53, 0.05);
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+#introduction::after {
+    content: '=>';
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 50px;
+    color: rgba(255, 107, 53, 0.04);
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Section Header */
+.intro-header {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 1;
+}
+
+#introduction h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff6b35;
+    margin: 0 0 20px 0;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 0.1s forwards;
+}
+
+.intro-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.25;
+    opacity: 0;
+    animation: slideUp 0.7s ease 0.2s forwards;
+}
+
+.intro-title span {
+    color: #ff6b35;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.intro-title span:hover {
+    transform: scale(1.1) rotate(2deg);
+    text-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+    cursor: default;
+}
+
+/* Feature Cards Grid */
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Individual Feature Card */
+.intro-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardReveal 0.5s ease forwards;
+    /* Übergänge für Hover-Effekte */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+}
+
+.intro-card:nth-child(1) { animation-delay: 0.45s; }
+.intro-card:nth-child(2) { animation-delay: 0.55s; }
+.intro-card:nth-child(3) { animation-delay: 0.65s; }
+
+/* HOVER EFFECT: LEVITATION & GLOW */
+.intro-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255, 107, 53, 0.5);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 20px 40px -15px rgba(255, 107, 53, 0.15),
+                0 0 20px 0 rgba(255, 107, 53, 0.1) inset;
+    z-index: 10;
+}
+
+/* Card Icon */
+.card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 500;
+    background: rgba(255, 107, 53, 0.1);
+    color: #ff6b35;
+    border: 1px solid rgba(255, 107, 53, 0.15);
+    transition: all 0.4s ease;
+}
+
+/* HOVER EFFECT: ICON POP */
+.intro-card:hover .card-icon {
+    background: #ff6b35;
+    color: white;
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+}
+
+/* Card Content */
+.card-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    transition: color 0.3s ease;
+}
+
+.intro-card:hover .card-title {
+    color: #ff6b35;
+}
+
+.card-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    margin: 0 0 24px 0;
+    transition: color 0.3s ease;
+}
+
+.intro-card:hover .card-text {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Code Snippet */
+.card-code {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    overflow: hidden; /* Wichtig für Scanner-Effekt */
+    position: relative; /* Wichtig für Scanner-Effekt */
+    transition: border-color 0.3s ease;
+}
+
+.intro-card:hover .card-code {
+    border-color: rgba(255, 107, 53, 0.3);
+}
+
+/* HOVER EFFECT: CODE SCANNER (Simuliert Verarbeitung) */
+.intro-card:hover .card-code::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+    transform: skewX(-20deg);
+    animation: codeScan 1.5s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes codeScan {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+.card-code .keyword { color: #ff6b35; }
+.card-code .function { color: rgba(255, 255, 255, 0.85); }
+.card-code .string { color: rgba(255, 107, 53, 0.7); }
+.card-code .comment { color: rgba(255, 255, 255, 0.3); font-style: italic; }
+.card-code .variable { color: rgba(255, 255, 255, 0.7); }
+
+/* Animations Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardReveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #introduction { padding: 80px 24px; }
+    .intro-grid { grid-template-columns: 1fr; }
+    .intro-card { padding: 32px; }
+    .card-code { font-size: 11px; }
+    
+    /* Mobil: Hover Effekte etwas reduzieren */
+    .intro-card:hover { transform: translateY(-5px); }
+}
+
+@media (max-width: 480px) {
+    .intro-title { font-size: 32px; }
+    .card-title { font-size: 20px; }
+    .card-text { font-size: 14px; }
+    .card-code { font-size: 10px; padding: 14px 16px; }
+}

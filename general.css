@@ -1,0 +1,39 @@
+body {
+    color: rgb(184, 181, 181);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;                /* Entfernt Standard-Margin */
+    overflow-x: hidden;       /* Verhindert horizontales Scrollen */
+}
+
+/* Fixierter gepunkteter Hintergrund */
+.dotted-background {
+    position: fixed;          /* Bleibt beim Scrollen fixiert */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0f; /* Dunkles Blau-Schwarz */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px); /* Weiße Punkte */
+    background-size: 40px 40px; /* Abstand zwischen Punkten */
+    z-index: -2;              /* Liegt hinter allem */
+}
+
+/* Subtiler Gradient-Overlay für mehr Tiefe */
+.gradient-overlay {
+    position: fixed;          /* Bleibt auch fixiert */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 20% 20%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(138, 43, 226, 0.06) 0%, transparent 50%);
+    z-index: -1;              /* Liegt über dem Hintergrund aber unter dem Content */
+    pointer-events: none;     /* Klicks gehen hindurch */
+}
+
+/* Scrollbarer Inhalt Container */
+.content {
+    position: relative;       /* Liegt über den fixierten Hintergründen */
+    z-index: 1;
+}

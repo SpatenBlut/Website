@@ -1,0 +1,83 @@
+/* Navbar Container */
+.navbar {
+    position: fixed;          /* Fixiert die Navbar, scrollt nicht mit */
+    top: 2rem;                /* Abstand vom oberen Rand */
+    left: 50%;                /* Startet bei 50% von links */
+    transform: translateX(-50%); /* Verschiebt zurück = zentriert */
+    z-index: 100;             /* Liegt über allen anderen Elementen */
+}
+
+/* Nav Links Container */
+.navbar ul {
+    display: flex;            /* Ordnet Links nebeneinander an */
+    align-items: center;      /* Zentriert Links vertikal */
+    gap: 0.5rem;              /* Abstand zwischen Links */
+    padding: 0.4rem;          /* Innenabstand */
+    margin: 0;                /* Entfernt Standard-Margin */
+    list-style: none;         /* Entfernt Aufzählungspunkte */
+    background: rgba(255, 255, 255, 0.04);  /* Transparenter Hintergrund */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Dezente Border */
+    border-radius: 50px;      /* Runde Ecken (Pill-Shape) */
+    backdrop-filter: blur(12px); /* Glas-Unschärfe-Effekt */
+    position: relative;       /* Für absolute Positionierung des Indicators */
+}
+
+/* Sliding Indicator */
+.nav-indicator {
+    position: absolute;       /* Positioniert relativ zum ul */
+    height: calc(100% - 0.8rem); /* Höhe minus Padding */
+    top: 0.4rem;              /* Abstand von oben */
+    background: rgba(255, 255, 255, 0.1); /* Heller als Container */
+    border-radius: 50px;      /* Runde Ecken */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Extra smooth Animation */
+    pointer-events: none;     /* Klicks gehen hindurch */
+}
+
+/* Nav Links */
+.navbar a {
+    display: block;           /* Block-Element */
+    color: rgba(255, 255, 255, 0.6); /* Halbtransparentes Weiß */
+    text-decoration: none;    /* Keine Unterstreichung */
+    font-size: 0.82rem;       /* Schriftgröße */
+    font-weight: 400;         /* Normale Schriftstärke */
+    letter-spacing: 0.04em;   /* Buchstabenabstand */
+    padding: 0.65rem 1.3rem;  /* Innenabstand */
+    border-radius: 50px;      /* Runde Ecken */
+    transition: color 0.4s ease; /* Sanfte Farbänderung */
+    position: relative;       /* Für z-index */
+    z-index: 1;               /* Liegt über dem Indicator */
+}
+
+/* Nav Link Hover */
+.navbar a:hover {
+    color: white;             /* Text wird weiß */
+}
+
+/* Nav Link Active */
+.navbar a.active {
+    color: white;             /* Text wird weiß */
+}
+
+/* Header */
+header {
+    margin-top: 100px;        /* Abstand damit Content nicht unter Navbar liegt */
+}
+
+.LandingPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 750px; 
+  text-align: center;  
+}
+
+.lpTitle{
+  color: white;
+  font-size: 75px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.lpSubTitle{
+  font-size: 25px;
+  font-family: 'Outfit', sans-serif;
+}

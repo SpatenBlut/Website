@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="header.css"/>
+    <link rel="stylesheet" href="introduction.css">
+</head>
+<body>
+
+    <div class="dotted-background"></div>
+    <div class="gradient-overlay"></div>
+
+    <div class="content">
+
+        <nav class="navbar">
+          <div class="nav_div">
+            <ul>
+              <span class="nav-indicator"></span>
+              <li><a href="#LandingPageSection" class="active">Home</a></li>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#project_section">Projekte</a></li>
+              <li><a href="#more_information_section">Kontakt</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <header>
+          <div class="LandingPage" id="LandingPageSection">
+            <div>
+              <h1 class="lpTitle">Java Script</h1>
+              <p class="lpSubTitle">This is an Introduction to Javascript, it shows what you can do with javascript</p>
+            </div>
+          </div>
+        </header>
+
+        <section id="introduction">
+          
+          <div class="intro-header">
+            <h2>Introduction</h2>
+            <p class="intro-title">Entdecke die Macht von <span>JavaScript</span></p>
+          </div>
+
+          <div class="intro-grid">
+            
+            <div class="intro-card">
+              <div class="card-icon">&lt;/&gt;</div>
+              <h3 class="card-title">DOM Manipulation</h3>
+              <p class="card-text">Verändere HTML-Elemente in Echtzeit und reagiere auf User-Interaktionen.</p>
+              <div class="card-code">
+                <span class="keyword">const</span> el = document.<span class="function">querySelector</span>(<span class="string">'.btn'</span>);<br>
+                el.<span class="function">onclick</span> = () => { ... };
+              </div>
+            </div>
+
+            <div class="intro-card">
+              <div class="card-icon">⟳</div>
+              <h3 class="card-title">Async Code</h3>
+              <p class="card-text">Lade Daten im Hintergrund ohne die Seite zu blockieren.</p>
+              <div class="card-code">
+                <span class="keyword">const</span> res = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">'/api'</span>);<br>
+                <span class="keyword">const</span> data = <span class="keyword">await</span> res.<span class="function">json</span>();
+              </div>
+            </div>
+
+            <div class="intro-card">
+              <div class="card-icon">{ }</div>
+              <h3 class="card-title">Web APIs</h3>
+              <p class="card-text">Nutze Browser-APIs für Storage, Geolocation und mehr.</p>
+              <div class="card-code">
+                localStorage.<span class="function">setItem</span>(<span class="string">'key'</span>, val);<br>
+                <span class="keyword">const</span> x = localStorage.<span class="function">getItem</span>(<span class="string">'key'</span>);
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section id="project_section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+          <div style="text-align: center;">
+            <h2 style="font-size: 50px; color: white;">Projekte</h2>
+            <p style="font-size: 20px; max-width: 600px;">Hier kommen deine Projekte hin.</p>
+          </div>
+        </section>
+
+        <section id="more_information_section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+          <div style="text-align: center;">
+            <h2 style="font-size: 50px; color: white;">Kontakt</h2>
+            <p style="font-size: 20px; max-width: 600px;">Kontaktinformationen hier.</p>
+          </div>
+        </section>
+
+    </div>
+
+    <script>
+        const navLinks = document.querySelectorAll('.navbar a'); /* Wählt alle Links in der Navbar aus */
+        const indicator = document.querySelector('.nav-indicator'); /* Wählt den Sliding Indicator aus */
+        const sections = document.querySelectorAll('section, .LandingPage'); /* Alle Sektionen */
+        
+        /* Bewegt den Indicator zum angegebenen Link */
+        function moveIndicator(link) {
+            indicator.style.width = link.offsetWidth + 'px'; /* Setzt Breite auf Link-Breite */
+            indicator.style.left = link.offsetLeft + 'px'; /* Setzt Position auf Link-Position */
+        }
+
+        /* Setzt den aktiven Link basierend auf der Sektion-ID */
+        function setActiveLink(id) {
+            navLinks.forEach(link => {
+                link.classList.remove('active'); /* Entfernt active von allen */
+                if (link.getAttribute('href') === '#' + id) { /* Wenn href mit ID übereinstimmt */
+                    link.classList.add('active'); /* Fügt active hinzu */
+                    moveIndicator(link); /* Bewegt Indicator */
+                }
+            });
+        }
+        
+        /* Initiale Position beim Laden der Seite */
+        const activeLink = document.querySelector('.navbar a.active'); /* Findet den aktiven Link */
+        if (activeLink) {
+            moveIndicator(activeLink); /* Bewegt Indicator zum aktiven Link */
+        }
+
+        /* Easing Funktion - extra smooth mit sanftem Start und Ende */
+        function easeInOutQuart(t) {
+            return t < 0.5 
+                ? 8 * t * t * t * t 
+                : 1 - Math.pow(-2 * t + 2, 4) / 2;
+        }
+
+        /* Custom Smooth Scroll Funktion */
+        function smoothScroll(target, duration) {
+            const targetElement = document.querySelector(target); /* Findet Ziel-Element */
+            if (!targetElement) return;
+            
+            /* getBoundingClientRect gibt die Position relativ zum Viewport */
+            const elementRect = targetElement.getBoundingClientRect();
+            const absoluteElementTop = elementRect.top + window.pageYOffset;
+            const targetPosition = absoluteElementTop; /* Direkt zur Sektion */
+            const startPosition = window.pageYOffset; /* Aktuelle Position */
+            const distance = targetPosition - startPosition; /* Zu scrollende Distanz */
+            let startTime = null;
+            
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime; /* Startzeit setzen */
+                const timeElapsed = currentTime - startTime; /* Vergangene Zeit */
+                const progress = Math.min(timeElapsed / duration, 1); /* Fortschritt 0-1 */
+                const ease = easeInOutQuart(progress); /* Easing anwenden */
+                
+                window.scrollTo(0, startPosition + distance * ease); /* Zur Position scrollen */
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation); /* Nächster Frame */
+                }
+            }
+            
+            requestAnimationFrame(animation); /* Animation starten */
+        }
+        
+        /* Event Listener für jeden Link */
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) { /* Bei Klick auf einen Link */
+                e.preventDefault(); /* Verhindert Standard-Scroll */
+                const target = this.getAttribute('href'); /* Holt href Attribut */
+                
+                navLinks.forEach(l => l.classList.remove('active')); /* Entfernt active von allen */
+                this.classList.add('active'); /* Fügt active hinzu */
+                moveIndicator(this); /* Bewegt Indicator */
+                
+                smoothScroll(target, 1200); /* Scrollt smooth (1200ms = 1.2 Sekunden) */
+            });
+        });
+
+        /* Intersection Observer - erkennt welche Sektion sichtbar ist */
+        const observerOptions = {
+            root: null, /* Viewport als Root */
+            rootMargin: '-50% 0px -50% 0px', /* Trigger in der Mitte */
+            threshold: 0 /* Trigger sobald sichtbar */
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { /* Wenn Sektion sichtbar */
+                    setActiveLink(entry.target.id); /* Link aktivieren */
+                }
+            });
+        }, observerOptions);
+
+        /* Beobachte alle Sektionen */
+        sections.forEach(section => {
+            if (section.id) { /* Nur Sektionen mit ID */
+                observer.observe(section); /* Zum Observer hinzufügen */
+            }
+        });
+        
+        /* Bei Fenster-Resize neu positionieren */
+        window.addEventListener('resize', () => {
+            const current = document.querySelector('.navbar a.active'); /* Aktueller aktiver Link */
+            if (current) {
+                moveIndicator(current); /* Position anpassen */
+            }
+        });
+
+        /* Taschenlampen-Effekt für Intro Cards - Licht geht nicht durch Wände */
+        const introCards = document.querySelectorAll('.intro-card');
+        
+        document.addEventListener('mousemove', (e) => {
+            /* Zuerst prüfen: Ist die Maus innerhalb einer Card? */
+            let mouseInsideCard = null;
+            
+            introCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isInside = e.clientX >= rect.left && e.clientX <= rect.right &&
+                                 e.clientY >= rect.top && e.clientY <= rect.bottom;
+                if (isInside) {
+                    mouseInsideCard = card;
+                }
+            });
+            
+            introCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                
+                /* Mausposition relativ zur Card */
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                
+                /* Wenn Maus in einer ANDEREN Card ist, kein Licht (Wand blockiert) */
+                if (mouseInsideCard !== null && mouseInsideCard !== card) {
+                    card.style.setProperty('--glow-opacity', 0);
+                    return;
+                }
+                
+                /* Distanz zur nächsten Kante berechnen */
+                const distToLeft = Math.abs(mouseX);
+                const distToRight = Math.abs(mouseX - rect.width);
+                const distToTop = Math.abs(mouseY);
+                const distToBottom = Math.abs(mouseY - rect.height);
+                const minDistToEdge = Math.min(distToLeft, distToRight, distToTop, distToBottom);
+                
+                /* Prüfen ob Maus in der Nähe der Card ist */
+                const maxDistance = 150;
+                const isNearCard = mouseX > -maxDistance && mouseX < rect.width + maxDistance &&
+                                   mouseY > -maxDistance && mouseY < rect.height + maxDistance;
+                
+                if (isNearCard) {
+                    card.style.setProperty('--mouse-x', mouseX + 'px');
+                    card.style.setProperty('--mouse-y', mouseY + 'px');
+                    
+                    /* Intensität basierend auf Distanz zur Kante - verstärkt */
+                    const intensity = Math.max(0, 1 - (minDistToEdge / maxDistance));
+                    const boostedIntensity = Math.pow(intensity, 0.5) * 1.4; /* Stärkerer Glow */
+                    card.style.setProperty('--glow-opacity', Math.min(boostedIntensity, 1));
+                } else {
+                    card.style.setProperty('--glow-opacity', 0);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
